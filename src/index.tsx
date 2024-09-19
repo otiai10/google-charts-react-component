@@ -1,6 +1,7 @@
 /// <reference types="google.visualization" />
 import { useMemo, useEffect, useRef } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type GoogleChartDrawer = { draw(data: google.visualization.DataTable | google.visualization.DataView, options: {}): void; };
 type GoogleChartDrawerOptions<T extends GoogleChartDrawer> = Parameters<T["draw"]>[1];
 

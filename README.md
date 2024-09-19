@@ -1,9 +1,9 @@
 # React Google Charts Component
 
-```typescript
-import {GoogleChart} from "to-be-defined";
+```jsx
+import { GoogleChart } from "to-be-defined";
 
-function YourComponent() {
+function YourCoolApp() {
     return (
         <GoogleChart
             title="Sales"
