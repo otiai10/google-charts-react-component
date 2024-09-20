@@ -1,0 +1,7 @@
+.github
+coverage
+node_modules
+eslint.config.mjs
+jest.config.ts
+Makefile
+tsconfig.json
