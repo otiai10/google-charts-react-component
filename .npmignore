@@ -5,3 +5,5 @@ eslint.config.mjs
 jest.config.ts
 Makefile
 tsconfig.json
+tests
+src
