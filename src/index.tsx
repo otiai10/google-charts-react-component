@@ -4,6 +4,8 @@ import { useMemo, useEffect, useRef } from "react";
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type GoogleChartDrawer = { draw(data: google.visualization.DataTable | google.visualization.DataView, options: {}): void; };
 type GoogleChartDrawerOptions<T extends GoogleChartDrawer> = Parameters<T["draw"]>[1];
+type ConstructorOf<T extends GoogleChartDrawer> = new (element: Element) => T;
+type ChartLibrary = { [name in (typeof ChartTypes)[keyof typeof ChartTypes]]: ConstructorOf<GoogleChartDrawer> };
 
 // Props for GoogleChart component.
 type GoogleChartProps<T extends GoogleChartDrawer> = {
@@ -88,6 +90,7 @@ const ChartTypes: Record<string, string> = {
     'annotation': 'AnnotationChart',
 };
 
+
 export function GoogleChart<T extends GoogleChartDrawer>(props: GoogleChartProps<T>) {
     const { title, className, id, data, options = {}, type, onDraw } = props;
     const chartRef = useRef<HTMLDivElement>(null);
@@ -95,7 +98,7 @@ export function GoogleChart<T extends GoogleChartDrawer>(props: GoogleChartProps
         // if data is already DataTable or DataView, use it as is
         const ready = (data instanceof ggl.visualization.DataTable || data instanceof ggl.visualization.DataView);
         const datatable = ready ? data : ggl.visualization.arrayToDataTable(data);
-        const instance = new (ggl.visualization as any)[ChartTypes[type]](chartRef.current!) as T;
+        const instance = new (ggl.visualization as unknown as ChartLibrary)[ChartTypes[type]](chartRef.current!) as T;
         instance.draw(datatable, { ...options, title });
         if (onDraw) onDraw(instance);
         return null;
