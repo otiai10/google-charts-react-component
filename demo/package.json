@@ -8,6 +8,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/google.visualization": "^0.0.74",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.108",
     "@types/react": "^18.3.8",
