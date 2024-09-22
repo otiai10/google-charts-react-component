@@ -32,6 +32,12 @@ type GoogleChartProps<T extends GoogleChartDrawer> = {
     className?: string;
 
     /**
+     * Inline styles to apply to the chart container.
+     * @DEFAULT undefined
+     */
+    style?: React.CSSProperties;
+
+    /**
      * Id of the chart container.
      * @DEFAULT undefined
      */
@@ -115,7 +121,7 @@ const ChartTypes: Record<string, string> = {
  * @returns {JSX.Element} GoogleChart component.
  */
 export function GoogleChart<T extends GoogleChartDrawer>(props: GoogleChartProps<T>) {
-    const { title, className, id, data, options = {}, type, onDraw } = props;
+    const { title, className, id, data, options = {}, style = {}, type, onDraw } = props;
     const chartRef = useRef<HTMLDivElement>(null);
     const render = (ggl: typeof google) => {
         // if data is already DataTable or DataView, use it as is
@@ -128,7 +134,7 @@ export function GoogleChart<T extends GoogleChartDrawer>(props: GoogleChartProps
     };
     return (
         <>
-            <div id={id} className={className} ref={chartRef}></div>
+            <div id={id} className={className} ref={chartRef} style={style}></div>
             {props.google ? render(props.google) : <ScriptLoader src={props.src || DEFAULT_SRC_URL}
                 onload={async () => {
                     await google.charts.load(props.version ?? "current", props.loadOptions ?? { packages: ['corechart'] });
