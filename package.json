@@ -1,6 +1,6 @@
 {
   "name": "google-charts-react-component",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Google Charts Component for React (TypeScript)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
