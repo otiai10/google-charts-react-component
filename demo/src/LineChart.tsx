@@ -11,21 +11,20 @@ export function MyLineChartComponent() {
                     data={data}
                     options={{}}
                 />
+                {/*demo:ignore:start*/}
+                <div>
+                    <pre>
+                        <code
+                            data-src="https://raw.githubusercontent.com/otiai10/google-charts-react-component/refs/heads/main/demo/src/LineChart.tsx"
+                            className="language-typescript"
+                        ></code></pre>
+                </div>
+                {/*demo:ignore:end*/}
             </div>
-            {/*embed:ignore:start*/}
-            <div>
-                <pre>
-                    <code
-                        data-src="https://raw.githubusercontent.com/otiai10/google-charts-react-component/refs/heads/main/demo/src/LineChart.tsx"
-                        className="language-typescript"
-                    ></code></pre>
-            </div>
-            {/*embed:ignore:end*/}
         </div>
     );
 }
-
-//embed:ignore:start
+//demo:ignore:start
 const data = [
     ["Year", "Sales", "Expenses"],
     ["2004", 1000, 400],
@@ -33,4 +32,4 @@ const data = [
     ["2006", 660, 1120],
     ["2007", 1030, 540],
 ];
-//embed:ignore:end
+//demo:ignore:end

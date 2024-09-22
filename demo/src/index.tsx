@@ -31,15 +31,16 @@ setTimeout(() => {
     const res = await fetch(src);
     const text = await res.text();
     let ignore = false;
-    codeblock.textContent = text.split('\n').map(line => {
-      if (line?.includes('embed:ignore:start')) {
+    const content = text.split('\n').map(line => {
+      if (line?.includes('demo:ignore:start')) {
         ignore = true; return null;
       }
-      if (line?.includes('embed:ignore:end')) {
+      if (line?.includes('demo:ignore:end')) {
         ignore = false; return null;
       }
       return ignore ? null : line;
     }).filter(line => line !== null).join("\n");
+    codeblock.textContent  = content + "\n" + `// Source: ${src.replace('https://raw.githubusercontent.com/', 'https://github.com/').replace('/refs/heads/main/', '/blob/main/')}`;
   });
   setTimeout(() => hljs.highlightAll(), 1000);
 }, 0);
