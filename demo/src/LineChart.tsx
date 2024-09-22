@@ -5,22 +5,19 @@ export function MyLineChartComponent() {
     return (
         <div>
             <h1 id="line-chart">Line Chart</h1>
-            <div>
-                <GoogleChart<google.visualization.LineChart>
-                    type="line"
-                    data={data}
-                    options={{}}
-                />
-                {/*demo:ignore:start*/}
-                <div>
-                    <pre>
-                        <code
-                            data-src="https://raw.githubusercontent.com/otiai10/google-charts-react-component/refs/heads/main/demo/src/LineChart.tsx"
-                            className="language-typescript"
-                        ></code></pre>
-                </div>
-                {/*demo:ignore:end*/}
+            <GoogleChart<google.visualization.LineChart>
+                type="line"
+                data={data}
+            />
+            {/*demo:ignore:start*/}
+            <div style={{ overflowX: "scroll" }}>
+                <pre>
+                    <code
+                        data-src="https://raw.githubusercontent.com/otiai10/google-charts-react-component/refs/heads/main/demo/src/LineChart.tsx"
+                        className="language-typescript"
+                    ></code></pre>
             </div>
+            {/*demo:ignore:end*/}
         </div>
     );
 }

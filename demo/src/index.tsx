@@ -2,15 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { MyLineChartComponent } from './LineChart';
+import { MyAnnotationChartComponent } from './AnnotationChart';
 
 function App() {
   return (
-    <div>
-      <h1>Google Charts React Component</h1>
-      <hr />
+    <div className="container">
+      <Header items={["Line", "Annotation"]} />
       <MyLineChartComponent />
+      <MyAnnotationChartComponent />
+      <Footer />
     </div>
   );
+}
+
+function Header({ items }: { items: string[] }) {
+  return (
+    <div className='header'>
+      <h1>Google Charts React Component </h1>
+      <ul>{items.map(item => <li key={item}><a href={`#${item.toLowerCase()}-chart`}>{item} Chart</a></li>)}</ul>
+    </div>
+  )
+}
+
+function Footer() {
+  return (
+    <div className="footer">
+      <p>
+        <a href="https://github.com/otiai10/google-charts-react-component">GitHub</a>
+      </p>
+    </div>
+  )
 }
 
 const root = ReactDOM.createRoot(
@@ -18,9 +39,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(<React.StrictMode><App /></React.StrictMode>);
 
-/**
- * Render source code for demo blocks
- */
+ // {{{ Render source code for demo blocks
 /// <reference types="highlight.js" />
 declare const hljs: { highlightAll: () => void; };
 setTimeout(() => {
@@ -44,3 +63,4 @@ setTimeout(() => {
   });
   setTimeout(() => hljs.highlightAll(), 1000);
 }, 0);
+// }}}
