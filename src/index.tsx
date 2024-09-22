@@ -16,7 +16,7 @@ type GoogleChartProps<T extends GoogleChartDrawer> = {
     type: keyof typeof ChartTypes;
 
     /** Options to customize the chart. */
-    options: GoogleChartDrawerOptions<T>;
+    options?: GoogleChartDrawerOptions<T>;
 
     /**
      * Title to display above the chart.
