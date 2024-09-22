@@ -4,10 +4,14 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
 export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
-  {languageOptions: { globals: globals.browser }},
+  { files: ["src/*.{js,mjs,cjs,ts,jsx,tsx}", "demo/src/**/*.tsx"] },
+  { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  {rules: {"react/react-in-jsx-scope": "off"}},
+  {
+    rules: { "react/react-in-jsx-scope": "off" },
+    settings: { react: { version: "detect" } },
+  },
+  { ignores: ["dist/", "node_modules/", "coverage/", "demo/build/"] },
 ];

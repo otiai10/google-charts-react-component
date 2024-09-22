@@ -20,7 +20,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-setTimeout(async () => {
-  const codeblocks = document.querySelectorAll('pre code');
-}, 0);
