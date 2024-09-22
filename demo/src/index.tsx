@@ -22,11 +22,11 @@ root.render(<React.StrictMode><App /></React.StrictMode>);
  * Render source code for demo blocks
  */
 /// <reference types="highlight.js" />
-declare const hljs: any;
+declare const hljs: { highlightAll: () => void; };
 setTimeout(() => {
   const codeblocks = document.querySelectorAll('pre>code[data-src]');
   codeblocks.forEach(async (codeblock) => {
-    let src = codeblock.getAttribute('data-src');
+    const src = codeblock.getAttribute('data-src');
     if (!src) return;
     const res = await fetch(src);
     const text = await res.text();
