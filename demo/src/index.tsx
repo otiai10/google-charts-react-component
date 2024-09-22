@@ -31,19 +31,15 @@ setTimeout(() => {
     const res = await fetch(src);
     const text = await res.text();
     let ignore = false;
-    const lines = text.split('\n').map(line => {
-      if (ignore) return null;
-      if (line.includes('embed:ignore:start')) {
-        ignore = true;
-        return null;
+    codeblock.textContent = text.split('\n').map(line => {
+      if (line?.includes('embed:ignore:start')) {
+        ignore = true; return null;
       }
-      if (line.includes('embed:ignore:end')) {
-        ignore = false;
-        return null;
+      if (line?.includes('embed:ignore:end')) {
+        ignore = false; return null;
       }
-      return line;
-    }).filter(line => line !== null);
-    codeblock.textContent = lines.join('\n');
+      return ignore ? null : line;
+    }).filter(line => line !== null).join("\n");
   });
   setTimeout(() => hljs.highlightAll(), 1000);
 }, 0);
