@@ -30,3 +30,11 @@ If you are using TypeScript, you can use strong type support:
     options={options} // automatically typed with LineChartOpitions
 />
 ```
+
+# Demo Gallery
+
+* https://otiai10.github.io/google-charts-react-component/
+
+# Issues and Requests
+
+* https://github.com/otiai10/google-charts-react-component/issues
