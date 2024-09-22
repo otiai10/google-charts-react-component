@@ -2,6 +2,7 @@
   "name": "demo",
   "version": "0.0.3",
   "private": true,
+  "homepage": "https://otiai10.com/google-charts-react-component",
   "dependencies": {
     "google-charts-react-component": "^0.0.2",
     "react": "^18.3.1",
